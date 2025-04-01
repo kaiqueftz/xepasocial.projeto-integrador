@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parceiros - XepaSocial</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <style>
+        .navbar, footer {
+            background: linear-gradient(135deg, #00a84c, #00e9e9);
+            color: white;
+        }
+        .navbar-brand, .nav-link {
+            color: white !important;
+        }
+        .navbar-brand {
+            font-size: 2rem;
+        }
+        footer {
+            padding: 20px 0;
+            text-align: center;
+        }
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 5px solid #a8060085;
+            
+        }
+        .social-icons a {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #00a84c;
+            text-decoration: none;
+        }
+        .social-icons a:hover {
+            color: #008034;
+        }
+        #map {
+            width: 100%;
+            height: 300px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body class="bg-light">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand" href="index.html">XepaSocial</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link active" href="quemSomos.html">Quem Somos?</a></li>
+                    <li class="nav-item"><a class="nav-link" href="contato.html">Contato</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+
+    <div class="container mt-5">
+        <p class="lead text-center">Conheça nossa loja parceira que apoia o XepaSocial e contribui para a sustentabilidade.</p>
+
+        <div id="parceiroCarousel" class="carousel slide mb-5" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active"><img src="img/xdacapital/banner.jpg" class="d-block w-100" alt="Imagem 1"></div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                🍔 O melhor Lanche Prensado do DF 👊🏼</p>
+                <p><strong>Local:</strong> Q 6 4650 - Sobradinho, Brasília - DF, 73026-655</p>
+                <p><strong>Telefone:</strong> <a href="tel:+5561996160608">(61) 99616-0608</a></p>
+                <p><strong>Menu:</strong> <a href="https://xdacapitallanches.com.br" target="_blank">xdacapitallanches.com.br</a></p>
+                <div class="social-icons">
+                    <a href="https://wa.me/5561996160608" target="_blank"><i class="bi bi-whatsapp"></i></a>
+                    <a href="https://www.instagram.com/xdacapital/" target="_blank"><i class="bi bi-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h4>Localização</h4>
+                <div id="map"></div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+
+    <script>
+        function initMap() {
+            var map = L.map('map').setView([-15.6500, -47.7900], 15);
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; OpenStreetMap contributors'
+            }).addTo(map);
+            L.marker([-15.6500, -47.7900]).addTo(map)
+                .bindPopup("<b>X da Capital Lanches</b><br>Q 6 4650 - Sobradinho, Brasília - DF")
+                .openPopup();
+        }
+        document.addEventListener("DOMContentLoaded", initMap);
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
